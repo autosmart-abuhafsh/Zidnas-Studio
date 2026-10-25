@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, ArrowRight, Sun } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { EditorialImage } from '../components/EditorialImage';
@@ -30,41 +29,24 @@ export const EditorialPhilosophySection: React.FC<
       <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
           {/* Left Column: Multi-ratio Editorial Visual Composition */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 flex flex-col justify-between gap-6"
-          >
-            <div className="relative rounded-2xl overflow-hidden border border-[#C5A15A]/35 h-[360px] sm:h-[440px] bg-[#121013] shadow-2xl">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeStudy.id + lightingMode}
-                  initial={{ opacity: 0, scale: 1.04 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full h-full"
-                >
-                  <EditorialImage
-                    id={activeStudy.id}
-                    alt={activeStudy.label}
-                    theme={activeStudy.theme}
-                    aspect="portrait"
-                    className="w-full h-full"
-                    imgClassName={
-                      lightingMode === 'chiaroscuro'
-                        ? 'contrast-125 brightness-90 saturate-75'
-                        : 'contrast-100 brightness-100'
-                    }
-                  />
-                </motion.div>
-              </AnimatePresence>
+          <div className="lg:col-span-6 flex flex-col justify-between gap-6">
+            <div className="relative rounded-2xl overflow-hidden border border-[#C5A15A]/35 h-[360px] sm:h-[440px] bg-[#121013] shadow-xl">
+              <EditorialImage
+                id={activeStudy.id}
+                alt={activeStudy.label}
+                theme={activeStudy.theme}
+                aspect="portrait"
+                className="w-full h-full"
+                imgClassName={
+                  lightingMode === 'chiaroscuro'
+                    ? 'contrast-125 brightness-90 saturate-75'
+                    : 'contrast-100 brightness-100'
+                }
+              />
 
               {/* Top Lighting Tone Selector */}
               <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between gap-2">
-                <span className="font-exif text-[11px] text-[#C5A15A] bg-[#171518]/85 px-3 py-1 rounded-md border border-[#C5A15A]/30 tabular-nums">
+                <span className="font-exif text-[11px] text-[#C5A15A] bg-[#171518]/90 px-3 py-1 rounded-md border border-[#C5A15A]/30 tabular-nums">
                   {activeStudy.exif}
                 </span>
 
@@ -115,9 +97,9 @@ export const EditorialPhilosophySection: React.FC<
                     key={study.id}
                     type="button"
                     onClick={() => setActiveStudyIndex(index)}
-                    className={`p-3.5 rounded-xl text-left border transition-all duration-200 cursor-pointer ${
+                    className={`p-3.5 rounded-xl text-left border transition-colors duration-150 cursor-pointer ${
                       isSelected
-                        ? 'bg-[#651B32]/90 border-[#C5A15A] text-[#F7F0E5] -translate-y-0.5 shadow-md'
+                        ? 'bg-[#651B32] border-[#C5A15A] text-[#F7F0E5] shadow-md'
                         : 'bg-[#1F1C20] border-white/10 text-[#F7F0E5]/70 hover:border-[#C5A15A]/45 hover:text-[#F7F0E5]'
                     }`}
                   >
@@ -131,16 +113,10 @@ export const EditorialPhilosophySection: React.FC<
                 );
               })}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Editorial Narrative & Javanese Kebaya Sensibility */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.65, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 flex flex-col justify-center"
-          >
+          <div className="lg:col-span-6 flex flex-col justify-center">
             <p className="text-xs font-semibold tracking-[0.2em] text-[#C5A15A] mb-3">
               02. {editorialSection.kicker}
             </p>
@@ -192,14 +168,14 @@ export const EditorialPhilosophySection: React.FC<
               <button
                 type="button"
                 onClick={() => onNavigate('services')}
-                className="group inline-flex items-center gap-2 px-5 py-3 text-xs sm:text-sm font-medium bg-[#651B32] text-[#F7F0E5] border border-[#C5A15A]/50 rounded-lg hover:bg-[#7A223D] transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0"
+                className="group inline-flex items-center gap-2 px-5 py-3 text-xs sm:text-sm font-medium bg-[#651B32] text-[#F7F0E5] border border-[#C5A15A]/50 rounded-lg hover:bg-[#7A223D] transition-colors duration-150 cursor-pointer whitespace-nowrap shrink-0"
               >
                 <Sparkles className="w-4 h-4 text-[#C5A15A]" />
                 <span>Pelajari Layanan Kami</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
               </button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -28,7 +28,8 @@ export default function App() {
     setActiveSection(sectionId);
     const el = document.getElementById(sectionId);
     if (el) {
-      const headerOffset = sectionId === 'home' ? 0 : 64;
+      const isMobile = window.innerWidth < 768;
+      const headerOffset = sectionId === 'home' ? 0 : isMobile ? 102 : 70;
       const elementPosition = el.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = Math.max(0, elementPosition - headerOffset);
       window.scrollTo({

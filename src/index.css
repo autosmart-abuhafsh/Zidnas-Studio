@@ -18,13 +18,11 @@
     font-family: var(--font-sans);
     background-color: #171518;
     color: #F7F0E5;
-    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
     *,
     *::before,
     *::after {
@@ -81,3 +79,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #651B32;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

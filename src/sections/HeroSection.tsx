@@ -64,7 +64,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
       </div>
 
       {/* Semantic Foreground Content Layer with Sequential Entrance Choreography */}
-      <div className="relative z-10 max-w-[1360px] w-full mx-auto px-5 sm:px-8 pt-28 pb-36 md:pt-36 md:pb-40 flex-1 flex flex-col justify-center pointer-events-none">
+      <div className="relative z-10 max-w-[1360px] w-full mx-auto px-5 sm:px-8 pt-32 pb-36 md:pt-36 md:pb-40 flex-1 flex flex-col justify-center pointer-events-none">
         <div className="max-w-xl pointer-events-auto">
           {/* Kicker Reveal */}
           <motion.div

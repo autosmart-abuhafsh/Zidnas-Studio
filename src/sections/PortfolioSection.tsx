@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { motion } from 'motion/react';
 import { Expand, MapPin, Aperture } from 'lucide-react';
 import {
   PORTFOLIO_CATEGORIES,
@@ -81,13 +80,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
     >
       <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
         {/* Editorial Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-2xl mb-12"
-        >
+        <div className="max-w-2xl mb-12">
           <p className="text-xs font-semibold tracking-[0.18em] text-[#651B32] mb-3">
             01. CURATED PORTFOLIO GALLERY
           </p>
@@ -103,7 +96,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             diabadikan. Klik pada karya untuk melihat detail komposisi dan
             parameter optik.
           </p>
-        </motion.div>
+        </div>
 
         {/* Interactive Category Filter Controls (Segmented Bar) */}
         <div

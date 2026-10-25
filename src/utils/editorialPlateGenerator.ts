@@ -551,33 +551,174 @@ export function renderEditorialCanvas(
 
 export function getEditorialPlateDataUrl(config: PlateConfig): string {
   const aspect = config.aspect || 'portrait';
-  // Cache by theme + aspect so identical themes reuse the same decoded image buffer
-  const key = `${config.theme}-${aspect}`;
+  const key = `svg-${config.id}-${config.theme}-${aspect}`;
   if (plateCache.has(key)) {
     return plateCache.get(key)!;
   }
 
-  if (typeof document === 'undefined') {
-    return '';
-  }
+  const palettes: Record<
+    PlateTheme,
+    { bg1: string; bg2: string; glow: string; gold: string; rim: string }
+  > = {
+    'kebaya-wedding': {
+      bg1: '#171518',
+      bg2: '#651B32',
+      glow: '#B9838C',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+    'bromo-prewedding': {
+      bg1: '#171518',
+      bg2: '#35251F',
+      glow: '#C5A15A',
+      gold: '#E5C882',
+      rim: '#F7F0E5',
+    },
+    'velvet-portrait': {
+      bg1: '#141115',
+      bg2: '#4E1527',
+      glow: '#B9838C',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+    'heritage-family': {
+      bg1: '#1F1815',
+      bg2: '#35251F',
+      glow: '#C5A15A',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+    'graduation-editorial': {
+      bg1: '#171518',
+      bg2: '#2C221E',
+      glow: '#C5A15A',
+      gold: '#D4B475',
+      rim: '#F7F0E5',
+    },
+    'artisan-product': {
+      bg1: '#1A1617',
+      bg2: '#35251F',
+      glow: '#C5A15A',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+    'architecture-commercial': {
+      bg1: '#121316',
+      bg2: '#261D21',
+      glow: '#B9838C',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+    'cultural-stage': {
+      bg1: '#171518',
+      bg2: '#651B32',
+      glow: '#C5A15A',
+      gold: '#DFBD78',
+      rim: '#F7F0E5',
+    },
+    'batik-macro': {
+      bg1: '#231715',
+      bg2: '#651B32',
+      glow: '#C5A15A',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+    'camera-craft': {
+      bg1: '#111013',
+      bg2: '#271E21',
+      glow: '#C5A15A',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+    'lighting-bts': {
+      bg1: '#151316',
+      bg2: '#35251F',
+      glow: '#B9838C',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+    'direction-bts': {
+      bg1: '#171518',
+      bg2: '#4A1828',
+      glow: '#C5A15A',
+      gold: '#C5A15A',
+      rim: '#F7F0E5',
+    },
+  };
 
-  const canvas = document.createElement('canvas');
-  if (aspect === 'landscape') {
-    canvas.width = 560;
-    canvas.height = 420;
-  } else if (aspect === 'wide') {
-    canvas.width = 640;
-    canvas.height = 360;
-  } else if (aspect === 'square') {
-    canvas.width = 480;
-    canvas.height = 480;
+  const pal = palettes[config.theme] || palettes['kebaya-wedding'];
+  const w = aspect === 'landscape' ? 600 : aspect === 'wide' ? 640 : aspect === 'square' ? 500 : 480;
+  const h = aspect === 'landscape' ? 450 : aspect === 'wide' ? 360 : aspect === 'square' ? 500 : 640;
+  const cx = w / 2;
+  const cy = h / 2;
+
+  let subjectMarkup = '';
+  if (
+    config.theme === 'kebaya-wedding' ||
+    config.theme === 'velvet-portrait' ||
+    config.theme === 'graduation-editorial'
+  ) {
+    subjectMarkup = `
+      <circle cx="${cx}" cy="${cy - h * 0.06}" r="${w * 0.34}" fill="url(#halo)" />
+      <ellipse cx="${cx}" cy="${cy - h * 0.19}" rx="${w * 0.08}" ry="${h * 0.09}" fill="#141114" />
+      <ellipse cx="${cx + w * 0.05}" cy="${cy - h * 0.2}" rx="${w * 0.05}" ry="${h * 0.045}" fill="#141114" />
+      <line x1="${cx + w * 0.03}" y1="${cy - h * 0.2}" x2="${cx + w * 0.16}" y2="${cy - h * 0.27}" stroke="${pal.gold}" stroke-width="2" />
+      <line x1="${cx + w * 0.03}" y1="${cy - h * 0.2}" x2="${cx + w * 0.17}" y2="${cy - h * 0.21}" stroke="${pal.gold}" stroke-width="2" />
+      <path d="M ${cx - w * 0.04} ${cy - h * 0.09} Q ${cx - w * 0.22} ${cy - h * 0.04} ${cx - w * 0.26} ${h * 0.94} L ${cx + w * 0.26} ${h * 0.94} Q ${cx + w * 0.22} ${cy - h * 0.04} ${cx + w * 0.04} ${cy - h * 0.09} Z" fill="url(#kebaya)" stroke="${pal.gold}" stroke-opacity="0.45" stroke-width="1.5" />
+      <circle cx="${cx}" cy="${cy - h * 0.01}" r="${w * 0.022}" fill="${pal.gold}" />
+      <circle cx="${cx}" cy="${cy + h * 0.035}" r="${w * 0.018}" fill="${pal.gold}" />
+      <circle cx="${cx}" cy="${cy + h * 0.075}" r="${w * 0.014}" fill="${pal.gold}" />
+    `;
+  } else if (
+    config.theme === 'bromo-prewedding' ||
+    config.theme === 'heritage-family'
+  ) {
+    subjectMarkup = `
+      <circle cx="${cx}" cy="${h * 0.36}" r="${w * 0.32}" fill="url(#halo)" />
+      <path d="M 0 ${h} L 0 ${h * 0.56} Q ${w * 0.28} ${h * 0.44} ${w * 0.55} ${h * 0.54} T ${w} ${h * 0.49} L ${w} ${h} Z" fill="#2A1D19" fill-opacity="0.7" />
+      <path d="M 0 ${h} L 0 ${h * 0.68} Q ${w * 0.35} ${h * 0.58} ${w * 0.68} ${h * 0.66} T ${w} ${h * 0.62} L ${w} ${h} Z" fill="#171518" />
+      <circle cx="${cx - 18}" cy="${h * 0.58}" r="11" fill="#120F12" />
+      <circle cx="${cx + 18}" cy="${h * 0.6}" r="10" fill="#120F12" />
+      <path d="M ${cx - 32} ${h * 0.74} L ${cx - 24} ${h * 0.6} L ${cx - 8} ${h * 0.6} L ${cx - 2} ${h * 0.74} Z" fill="#651B32" />
+      <path d="M ${cx + 2} ${h * 0.74} L ${cx + 10} ${h * 0.62} L ${cx + 26} ${h * 0.62} L ${cx + 34} ${h * 0.74} Z" fill="#35251F" />
+    `;
   } else {
-    canvas.width = 450;
-    canvas.height = 600;
+    subjectMarkup = `
+      <circle cx="${cx}" cy="${cy}" r="${w * 0.3}" fill="url(#halo)" />
+      <circle cx="${cx}" cy="${cy}" r="${w * 0.24}" fill="none" stroke="${pal.gold}" stroke-opacity="0.35" stroke-width="1.5" />
+      <circle cx="${cx}" cy="${cy}" r="${w * 0.16}" fill="none" stroke="${pal.rim}" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="6 4" />
+      <circle cx="${cx}" cy="${cy}" r="${w * 0.08}" fill="${pal.bg2}" stroke="${pal.gold}" stroke-width="2" />
+      <circle cx="${cx - 8}" cy="${cy - 8}" r="4" fill="${pal.rim}" fill-opacity="0.7" />
+    `;
   }
 
-  renderEditorialCanvas(canvas, config);
-  const url = canvas.toDataURL('image/jpeg', 0.82);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0.85" y2="1">
+        <stop offset="0%" stop-color="${pal.bg1}" />
+        <stop offset="55%" stop-color="${pal.bg2}" />
+        <stop offset="100%" stop-color="#100E11" />
+      </linearGradient>
+      <radialGradient id="halo" cx="50%" cy="45%" r="50%">
+        <stop offset="0%" stop-color="${pal.glow}" stop-opacity="0.38" />
+        <stop offset="55%" stop-color="${pal.gold}" stop-opacity="0.14" />
+        <stop offset="100%" stop-color="#171518" stop-opacity="0" />
+      </radialGradient>
+      <linearGradient id="kebaya" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#651B32" />
+        <stop offset="60%" stop-color="#3E101F" />
+        <stop offset="100%" stop-color="#171518" />
+      </linearGradient>
+    </defs>
+    <rect width="${w}" height="${h}" fill="url(#bg)" />
+    ${subjectMarkup}
+    <circle cx="${w * 0.22}" cy="${h * 0.26}" r="${w * 0.045}" fill="${pal.gold}" fill-opacity="0.12" />
+    <circle cx="${w * 0.78}" cy="${h * 0.32}" r="${w * 0.06}" fill="${pal.glow}" fill-opacity="0.1" />
+    <circle cx="${w * 0.72}" cy="${h * 0.74}" r="${w * 0.04}" fill="${pal.gold}" fill-opacity="0.1" />
+    <rect x="14" y="14" width="${w - 28}" height="${h - 28}" fill="none" stroke="${pal.gold}" stroke-opacity="0.24" stroke-width="1" />
+  </svg>`;
+
+  const url = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
   plateCache.set(key, url);
   return url;
 }

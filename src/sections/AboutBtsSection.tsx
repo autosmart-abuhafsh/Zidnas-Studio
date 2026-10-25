@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Camera, MapPin, Aperture } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { EditorialImage } from '../components/EditorialImage';
@@ -19,13 +18,7 @@ export const AboutBtsSection: React.FC = () => {
         {/* =============================================================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch mb-28">
           {/* Left Column: Photographer / Team Editorial Portrait Frame */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex flex-col justify-between bg-[#1F1B1F] border border-[#C5A15A]/30 rounded-2xl overflow-hidden group"
-          >
+          <div className="lg:col-span-5 flex flex-col justify-between bg-[#1F1B1F] border border-[#C5A15A]/30 rounded-2xl overflow-hidden group">
             <div className="relative h-[380px] sm:h-[440px] w-full overflow-hidden">
               <EditorialImage
                 id="about-photographer-profile"
@@ -71,16 +64,10 @@ export const AboutBtsSection: React.FC = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Brand Story & Philosophy Pillars */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.65, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col justify-between"
-          >
+          <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
               <p className="text-xs font-semibold tracking-[0.2em] text-[#C5A15A] mb-3">
                 05. STORY, CRAFT, AND CULTURE
@@ -110,7 +97,7 @@ export const AboutBtsSection: React.FC = () => {
               {about.philosophyPillars.map((pillar) => (
                 <div
                   key={pillar.number}
-                  className="p-5 rounded-xl bg-[#1F1B1F]/80 border border-white/10 hover:border-[#C5A15A]/45 transition-colors duration-200"
+                  className="p-5 rounded-xl bg-[#1F1B1F]/80 border border-white/10 hover:border-[#C5A15A]/45 transition-colors duration-150"
                 >
                   <p className="font-exif text-xs text-[#C5A15A] tabular-nums mb-2">
                     {pillar.number}.
@@ -124,7 +111,7 @@ export const AboutBtsSection: React.FC = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* =============================================================== */}
@@ -151,20 +138,12 @@ export const AboutBtsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Staggered Behind The Scenes Grid */}
+          {/* Behind The Scenes Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {behindTheScenes.map((bts, idx) => (
-              <motion.article
+              <article
                 key={bts.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.6,
-                  delay: idx * 0.1,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className={`group bg-[#1F1B1F] border border-white/10 hover:border-[#C5A15A]/45 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 ${
+                className={`group bg-[#1F1B1F] border border-white/10 hover:border-[#C5A15A]/45 rounded-2xl overflow-hidden flex flex-col justify-between transition-transform duration-150 hover:-translate-y-1 ${
                   idx === 1 ? 'md:mt-8' : ''
                 }`}
               >
@@ -206,7 +185,7 @@ export const AboutBtsSection: React.FC = () => {
                     <span className="truncate">{bts.equipmentNote}</span>
                   </div>
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
 

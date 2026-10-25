@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
-import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
 import {
   renderEditorialCanvas,
   PlateTheme,
@@ -195,11 +194,10 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.18;
     renderer.setPixelRatio(
-      isSoftwareGl ? 1 : Math.min(window.devicePixelRatio, 1.5)
+      isSoftwareGl ? 1 : Math.min(window.devicePixelRatio, 1.25)
     );
     renderer.setSize(width, height);
-    renderer.shadowMap.enabled = !isSoftwareGl && !isMobile;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.enabled = false;
 
     mountEl.innerHTML = '';
     mountEl.appendChild(renderer.domElement);
@@ -233,29 +231,16 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
     camera.position.set(0, 0.65, isMobile ? 9.2 : 7.4);
 
     // =========================================================================
-    // STUDIO LIGHTING RIG
+    // LIGHTWEIGHT STUDIO LIGHTING RIG (Fast Single-Pass Evaluation)
     // =========================================================================
-    const hemiLight = new THREE.HemisphereLight(0xf7f0e5, 0x35251f, 0.8);
+    const hemiLight = new THREE.HemisphereLight(0xf7f0e5, 0x35251f, 0.95);
     scene.add(hemiLight);
 
-    const keyLight = new THREE.DirectionalLight(0xffe6c2, 2.35);
+    const keyLight = new THREE.DirectionalLight(0xffe6c2, 2.4);
     keyLight.position.set(4.8, 6.5, 5.2);
-    if (!isSoftwareGl && !isMobile) {
-      keyLight.castShadow = true;
-      keyLight.shadow.mapSize.set(512, 512);
-      keyLight.shadow.camera.near = 0.5;
-      keyLight.shadow.camera.far = 22;
-      const d = 5.5;
-      keyLight.shadow.camera.left = -d;
-      keyLight.shadow.camera.right = d;
-      keyLight.shadow.camera.top = d;
-      keyLight.shadow.camera.bottom = -d;
-      keyLight.shadow.bias = -0.0005;
-      keyLight.shadow.normalBias = 0.02;
-    }
     scene.add(keyLight);
 
-    const rimLight = new THREE.DirectionalLight(0xc5a15a, 1.85);
+    const rimLight = new THREE.DirectionalLight(0xc5a15a, 1.9);
     rimLight.position.set(-5.2, 3.5, -4.2);
     scene.add(rimLight);
 
@@ -263,66 +248,35 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
     maroonUnderglow.position.set(0, -1.4, 2.4);
     scene.add(maroonUnderglow);
 
-    if (!isSoftwareGl) {
-      RectAreaLightUniformsLib.init();
-      const goldSoftbox = new THREE.RectAreaLight(0xffdf9e, 4.5, 3.5, 2.2);
-      goldSoftbox.position.set(3.6, 2.8, 3.2);
-      goldSoftbox.lookAt(0, 0, 0);
-      scene.add(goldSoftbox);
-
-      const roseSoftbox = new THREE.RectAreaLight(0xb9838c, 3.2, 3.2, 2.2);
-      roseSoftbox.position.set(-3.8, 2.2, 2.8);
-      roseSoftbox.lookAt(0, 0, 0);
-      scene.add(roseSoftbox);
-    }
-
-    const pointerSpotLight = new THREE.SpotLight(
-      0xffe8c2,
-      3.4,
-      18,
-      Math.PI / 5,
-      0.65,
-      1.5
-    );
-    pointerSpotLight.position.set(0, 2.6, 4.5);
-    scene.add(pointerSpotLight);
-    scene.add(pointerSpotLight.target);
-
     // =========================================================================
-    // PBR MATERIALS LIBRARY (Single-pass optimized for 60fps scrolling)
+    // PBR MATERIALS LIBRARY (Ultra-Fast Single-Pass MeshStandardMaterial)
     // =========================================================================
-    const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 4);
+    const maxAnisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 2);
 
     const charcoalBodyMat = new THREE.MeshStandardMaterial({
       color: 0x1b181c,
-      roughness: 0.52,
-      metalness: 0.38,
+      roughness: 0.48,
+      metalness: 0.42,
     });
 
-    const maroonLeatherMat = new THREE.MeshPhysicalMaterial({
+    const maroonLeatherMat = new THREE.MeshStandardMaterial({
       color: 0x651b32,
-      roughness: 0.68,
-      metalness: 0.12,
-      sheen: 0.65,
-      sheenColor: new THREE.Color(0xb9838c),
-      sheenRoughness: 0.45,
+      roughness: 0.62,
+      metalness: 0.18,
     });
 
-    const brushedGoldMat = new THREE.MeshPhysicalMaterial({
+    const brushedGoldMat = new THREE.MeshStandardMaterial({
       color: 0xc5a15a,
-      metalness: 0.94,
-      roughness: 0.16,
-      anisotropy: 0.85,
-      clearcoat: 0.4,
+      metalness: 0.92,
+      roughness: 0.18,
     });
 
-    const activeGoldFrameMat = new THREE.MeshPhysicalMaterial({
+    const activeGoldFrameMat = new THREE.MeshStandardMaterial({
       color: 0xdfbd78,
       emissive: 0x651b32,
       emissiveIntensity: 0.35,
-      metalness: 0.95,
-      roughness: 0.12,
-      clearcoat: 0.6,
+      metalness: 0.94,
+      roughness: 0.14,
     });
 
     const darkBronzeBarrelMat = new THREE.MeshStandardMaterial({
@@ -331,27 +285,22 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
       roughness: 0.24,
     });
 
-    const opticalGlassMat = new THREE.MeshPhysicalMaterial({
+    const opticalGlassMat = new THREE.MeshStandardMaterial({
       color: 0xf7f0e5,
-      metalness: 0.15,
-      roughness: 0.04,
+      metalness: 0.25,
+      roughness: 0.05,
       transparent: true,
-      opacity: 0.46,
-      ior: 1.64,
-      clearcoat: 1.0,
-      clearcoatRoughness: 0.04,
+      opacity: 0.42,
       envMapIntensity: 2.2,
       depthWrite: false,
     });
 
-    const rubyCoatingGlassMat = new THREE.MeshPhysicalMaterial({
+    const rubyCoatingGlassMat = new THREE.MeshStandardMaterial({
       color: 0xb9838c,
-      metalness: 0.22,
-      roughness: 0.05,
+      metalness: 0.3,
+      roughness: 0.06,
       transparent: true,
-      opacity: 0.52,
-      ior: 1.76,
-      clearcoat: 1.0,
+      opacity: 0.48,
       envMapIntensity: 2.0,
       depthWrite: false,
     });
@@ -595,8 +544,8 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
       fGroup.add(matMesh);
 
       const texCanvas = document.createElement('canvas');
-      texCanvas.width = 280;
-      texCanvas.height = 374;
+      texCanvas.width = 180;
+      texCanvas.height = 240;
       renderEditorialCanvas(texCanvas, {
         id: cfg.id,
         theme: cfg.theme,
@@ -643,9 +592,9 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
     // =========================================================================
     // 3. ARCHITECTURAL GALLERY FLOOR INLAY & GOLDEN ORBITAL RINGS
     // =========================================================================
-    const orbitalRing1Geo = new THREE.TorusGeometry(2.15, 0.008, 12, 96);
-    const orbitalRing2Geo = new THREE.TorusGeometry(2.75, 0.006, 12, 96);
-    const orbitalRing3Geo = new THREE.TorusGeometry(3.55, 0.004, 12, 96);
+    const orbitalRing1Geo = new THREE.TorusGeometry(2.15, 0.008, 10, 64);
+    const orbitalRing2Geo = new THREE.TorusGeometry(2.75, 0.006, 10, 64);
+    const orbitalRing3Geo = new THREE.TorusGeometry(3.55, 0.004, 10, 64);
     disposableGeometries.push(
       orbitalRing1Geo,
       orbitalRing2Geo,
@@ -665,7 +614,7 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
     orbitalRing3.position.y = -1.32;
     scene.add(orbitalRing3);
 
-    const particleCount = isMobile ? 30 : 65;
+    const particleCount = isMobile ? 20 : 45;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount; i++) {
@@ -691,22 +640,22 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
     scene.add(dustParticles);
 
     const floorCanvas = document.createElement('canvas');
-    floorCanvas.width = 256;
-    floorCanvas.height = 256;
+    floorCanvas.width = 192;
+    floorCanvas.height = 192;
     const fCtx = floorCanvas.getContext('2d');
     if (fCtx) {
-      const grad = fCtx.createRadialGradient(128, 128, 10, 128, 128, 122);
+      const grad = fCtx.createRadialGradient(96, 96, 8, 96, 96, 90);
       grad.addColorStop(0, 'rgba(0, 0, 0, 0.72)');
       grad.addColorStop(0.55, 'rgba(23, 21, 24, 0.35)');
       grad.addColorStop(1, 'rgba(23, 21, 24, 0)');
       fCtx.fillStyle = grad;
-      fCtx.fillRect(0, 0, 256, 256);
+      fCtx.fillRect(0, 0, 192, 192);
 
       fCtx.strokeStyle = 'rgba(197, 161, 90, 0.18)';
       fCtx.lineWidth = 1;
-      [35, 65, 95, 118].forEach((r) => {
+      [28, 52, 74, 90].forEach((r) => {
         fCtx.beginPath();
-        fCtx.arc(128, 128, r, 0, Math.PI * 2);
+        fCtx.arc(96, 96, r, 0, Math.PI * 2);
         fCtx.stroke();
       });
     }
@@ -736,7 +685,7 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
     }
 
     // =========================================================================
-    // 4. RAYCASTING & VIEWPORT VISIBILITY PAUSE FOR 60FPS SCROLLING
+    // 4. RAYCASTING & SCROLL-PAUSE FOR BUTTER-SMOOTH 60FPS SCROLLING
     // =========================================================================
     const raycaster = new THREE.Raycaster();
     raycaster.layers.set(1);
@@ -752,7 +701,7 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
       stateRef.current.pointerY = THREE.MathUtils.clamp(ny, -1, 1);
 
       const now = performance.now();
-      if (now - lastRaycastTime < 65) return;
+      if (now - lastRaycastTime < 80) return;
       lastRaycastTime = now;
 
       _pointerVec2.set(stateRef.current.pointerX, stateRef.current.pointerY);
@@ -795,42 +744,11 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
       }
     };
 
-    let scrollTicking = false;
-    const handleScroll = () => {
-      if (scrollTicking) return;
-      scrollTicking = true;
-      requestAnimationFrame(() => {
-        scrollTicking = false;
-        const ratio = Math.min(1, Math.max(0, window.scrollY / cachedHeight));
-        stateRef.current.scrollRatio = ratio;
-      });
-    };
-
-    mountEl.addEventListener('pointermove', handlePointerMove, {
-      passive: true,
-    });
-    renderer.domElement.addEventListener('click', handleCanvasClick);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    const handleResize = () => {
-      if (!mountEl) return;
-      cachedWidth = mountEl.clientWidth || window.innerWidth;
-      cachedHeight = mountEl.clientHeight || window.innerHeight;
-      camera.aspect = cachedWidth / cachedHeight;
-      camera.fov = cachedWidth < 768 ? 52 : 40;
-      camera.updateProjectionMatrix();
-      renderer.setSize(cachedWidth, cachedHeight);
-    };
-    window.addEventListener('resize', handleResize, { passive: true });
-
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
     const clock = new THREE.Clock();
     let frameId = 0;
     let isRunning = false;
     let isHeroVisible = true;
+    let scrollResumeTimer = 0;
     let currentExploded = stateRef.current.explodedFactor;
     let currentAperture = stateRef.current.apertureOpen;
 
@@ -871,7 +789,6 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
         hoveredFrameId,
         pointerX,
         pointerY,
-        scrollRatio,
       } = stateRef.current;
 
       const mobileNow = cachedWidth < 768;
@@ -895,23 +812,23 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
         _targetCamPos.set(
           1.45 + pointerX * 0.28,
           0.32 + pointerY * 0.22,
-          (mobileNow ? 4.2 : 3.2) - scrollRatio * 0.8
+          mobileNow ? 4.2 : 3.2
         );
         _targetLookAt.set(0, 0, 0.48);
       } else if (preset === 'frames') {
         _targetCamPos.set(
           pointerX * 0.75,
           0.45 + pointerY * 0.35,
-          (mobileNow ? 8.4 : 6.9) - scrollRatio * 1.4
+          mobileNow ? 8.4 : 6.9
         );
         _targetLookAt.set(pointerX * 0.3, 0.2, -1.25);
       } else {
         _targetCamPos.set(
           pointerX * 0.55,
-          0.24 + pointerY * 0.28 - scrollRatio * 0.3,
-          (mobileNow ? 7.3 : 5.5) - scrollRatio * 1.35
+          0.24 + pointerY * 0.28,
+          mobileNow ? 7.3 : 5.5
         );
-        _targetLookAt.set(pointerX * 0.2, 0.05, -scrollRatio * 0.6);
+        _targetLookAt.set(pointerX * 0.2, 0.05, 0);
       }
 
       const dampLambda = 4.0;
@@ -953,9 +870,6 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
         delta
       );
       camera.lookAt(_currentLookAt);
-
-      _spotTargetPos.set(pointerX * 3.8, pointerY * 2.4, -0.8);
-      pointerSpotLight.target.position.lerp(_spotTargetPos, 0.12);
 
       currentExploded = THREE.MathUtils.damp(
         currentExploded,
@@ -1001,8 +915,8 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
           delta
         );
 
-        orbitalRing1.rotation.z = elapsed * 0.09 + scrollRatio * 0.8;
-        orbitalRing2.rotation.z = -elapsed * 0.065 - scrollRatio * 0.6;
+        orbitalRing1.rotation.z = elapsed * 0.09;
+        orbitalRing2.rotation.z = -elapsed * 0.065;
         orbitalRing3.rotation.z = elapsed * 0.04;
 
         dustParticles.rotation.y = elapsed * 0.025 + pointerX * 0.08;
@@ -1108,7 +1022,41 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
       clearTimeout(frameId);
     };
 
-    // Pause WebGL rendering when Hero is scrolled out of view so page scrolling is 100% lag-free
+    // Pause WebGL rendering immediately during active scroll so page scrolling is 100% lag-free
+    const handleScroll = () => {
+      if (isRunning) {
+        stopLoop();
+      }
+      window.clearTimeout(scrollResumeTimer);
+      scrollResumeTimer = window.setTimeout(() => {
+        if (isHeroVisible && !document.hidden) {
+          startLoop();
+        }
+      }, 140);
+    };
+
+    mountEl.addEventListener('pointermove', handlePointerMove, {
+      passive: true,
+    });
+    renderer.domElement.addEventListener('click', handleCanvasClick);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    const handleResize = () => {
+      if (!mountEl) return;
+      cachedWidth = mountEl.clientWidth || window.innerWidth;
+      cachedHeight = mountEl.clientHeight || window.innerHeight;
+      camera.aspect = cachedWidth / cachedHeight;
+      camera.fov = cachedWidth < 768 ? 52 : 40;
+      camera.updateProjectionMatrix();
+      renderer.setSize(cachedWidth, cachedHeight);
+      renderer.render(scene, camera);
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
     const intersectionObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -1119,7 +1067,7 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
           stopLoop();
         }
       },
-      { threshold: 0.01 }
+      { threshold: 0.05 }
     );
     intersectionObserver.observe(mountEl);
 
@@ -1132,10 +1080,13 @@ export const Hero3DScene: React.FC<Hero3DSceneProps> = ({
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
+    // Draw initial frame immediately and start loop
+    renderer.render(scene, camera);
     startLoop();
 
     return () => {
       stopLoop();
+      window.clearTimeout(scrollResumeTimer);
       intersectionObserver.disconnect();
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       mountEl.removeEventListener('pointermove', handlePointerMove);
