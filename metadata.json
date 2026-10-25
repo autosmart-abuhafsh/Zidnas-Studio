@@ -1,0 +1,8 @@
+{
+  "name": "ZIDNAS STUDIO Photography — 3D Studio & Portfolio Malang",
+  "description": "Jasa Foto + Sewa Kebaya. Galeri fotografi 3D imersif dan layanan fotografer profesional di Malang untuk pernikahan, prewedding, portrait, keluarga, produk, dan warisan budaya Jawa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

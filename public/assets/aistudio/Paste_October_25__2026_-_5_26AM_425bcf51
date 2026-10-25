@@ -1,0 +1,728 @@
+# MASTER PRD — WEBSITE FOTOGRAFER PROFESIONAL 3D
+## JAVANESE HERITAGE — IMMERSIVE PHOTOGRAPHY EXPERIENCE
+
+Bertindaklah sebagai Senior Creative Director, UI/UX Designer, 3D Web Developer, Frontend Engineer, Motion Designer, dan Digital Branding Specialist kelas internasional.
+
+Tugas Anda adalah membangun sebuah website portofolio fotografer profesional yang benar-benar berfungsi, modern, sangat imersif, memiliki animasi 3D yang memukau, responsif, dan mempunyai identitas visual yang kuat berdasarkan keanggunan kebaya adat Jawa.
+
+Website ini ditujukan untuk pasar fotografi profesional di Kota Malang, Jawa Timur, dan harus mampu memberikan pengalaman visual yang berbeda dari website fotografer pada umumnya.
+
+Jangan hanya membuat desain dashboard, wireframe, atau landing page sederhana. Bangun website yang utuh dengan interaksi nyata, transisi halus, komponen yang berfungsi, desain premium, dan kode yang siap dijalankan serta dipublikasikan.
+
+==================================================
+1. KONSEP DAN IDENTITAS BRAND
+==================================================
+
+Nama konsep brand:
+JAVANESE HERITAGE PHOTOGRAPHY
+
+Tagline utama:
+“Every Frame Holds a Story. Every Story Holds a Soul.”
+
+Tagline Bahasa Indonesia:
+“Merangkai Cerita, Mengabadikan Rasa.”
+
+Lokasi layanan:
+Malang, Jawa Timur, Indonesia.
+
+Karakter brand:
+- Elegant
+- Cinematic
+- Artistic
+- Premium
+- Modern
+- Cultural
+- Emotional
+- Sophisticated
+- Memorable
+
+Konsep kreatif utama adalah perpaduan antara fotografi profesional modern, ruang galeri digital tiga dimensi, serta keindahan tekstur dan warna kebaya tradisional Jawa.
+
+Identitas Jawa harus ditampilkan dengan cara kontemporer. Hindari kesan kuno, terlalu ramai, terlalu folkloris, atau seperti website instansi kebudayaan.
+
+Website harus membuat pengunjung merasa sedang memasuki galeri fotografi premium yang hidup.
+
+Nama brand, logo, tagline, nomor WhatsApp, email, harga layanan, foto portofolio, dan informasi bisnis harus mudah diubah melalui satu konfigurasi yang jelas.
+
+==================================================
+2. DESIGN SYSTEM — WARNA KEBAYA JAWA
+==================================================
+
+Gunakan palet warna berikut sebagai sistem visual utama.
+
+A. Kebaya Maroon — #651B32
+Warna utama brand. Digunakan untuk area hero tertentu, aksen identitas, tombol pilihan, elemen aktif, dan detail visual yang kuat.
+
+B. Ivory Cream — #F7F0E5
+Warna dasar terang yang terinspirasi kain kebaya berwarna gading. Digunakan pada latar galeri, tipografi kontras, dan ruang kosong untuk memberikan kesan elegan.
+
+C. Antique Gold — #C5A15A
+Warna aksen premium yang terinspirasi sulaman kebaya. Gunakan secara terukur untuk garis tipis, ornamen, ikon, penanda aktif, dan detail animasi.
+
+D. Batik Brown — #35251F
+Warna cokelat gelap yang terinspirasi batik klasik. Digunakan untuk elemen pendukung dan bagian tertentu dari website.
+
+E. Deep Charcoal — #171518
+Warna dasar gelap sinematik untuk hero, navigasi, footer, dan bagian yang membutuhkan kontras dramatis.
+
+F. Dusty Rose — #B9838C
+Aksen lembut untuk transisi visual tertentu, terutama pada fotografi portrait dan wedding editorial.
+
+Rasio penggunaan warna:
+- Deep Charcoal: 35%
+- Ivory Cream: 30%
+- Kebaya Maroon: 20%
+- Antique Gold: 10%
+- Dusty Rose dan Batik Brown: 5%
+
+Rasio tersebut fleksibel mengikuti kebutuhan setiap section.
+
+PENTING:
+Jangan menggunakan semua warna secara berlebihan dalam satu layar. Buat komposisi yang tenang, matang, mewah, dan memiliki ruang kosong yang cukup.
+
+Gunakan motif batik kawung atau parang sebagai ornamen geometris yang sangat halus pada beberapa bagian. Motif hanya menjadi elemen dekoratif, bukan latar yang memenuhi seluruh halaman.
+
+Gunakan kombinasi tipografi:
+- Serif editorial elegan untuk heading dan pernyataan emosional.
+- Sans-serif modern untuk navigasi, paragraf, label, formulir, dan tombol.
+- Huruf italic editorial untuk menonjolkan kata tertentu.
+
+Pastikan seluruh teks nyaman dibaca dan memiliki kontras yang baik.
+
+==================================================
+3. PENGALAMAN 3D PADA HERO SECTION
+==================================================
+
+Hero merupakan bagian paling penting dan paling mengesankan dari website.
+
+Bangun visual 3D dengan konsep:
+“THE IMMERSIVE PHOTOGRAPHY GALLERY”.
+
+Ketika website pertama kali dibuka, pengunjung melihat sebuah ruang visual sinematik dengan nuansa charcoal, maroon, ivory, dan emas.
+
+Komponen visual yang diharapkan:
+
+1. Objek kamera profesional atau elemen lensa kamera 3D yang menjadi titik fokus.
+2. Bingkai foto tiga dimensi yang melayang dalam ruang.
+3. Foto-foto editorial yang tersusun pada beberapa kedalaman ruang.
+4. Cincin lensa, elemen refleksi cahaya, atau garis geometris emas yang bergerak secara halus.
+5. Efek depth of field yang terkontrol.
+6. Pergerakan kamera virtual yang lembut mengikuti interaksi pengguna.
+7. Partikel debu atau cahaya sinematik dalam jumlah minimal.
+8. Elemen tipografi yang seolah berada pada kedalaman ruang berbeda.
+
+Tambahkan animasi masuk berurutan:
+- Latar muncul perlahan.
+- Cahaya lembut menyapu bidang visual.
+- Elemen lensa atau bingkai bergerak masuk dari kedalaman ruang.
+- Foto utama muncul dengan efek masking.
+- Judul tampil melalui reveal animation.
+- Tombol call-to-action muncul setelah judul.
+
+Judul hero:
+“Memories, Framed in Elegance.”
+
+Subjudul:
+“Fotografi profesional untuk pernikahan, portrait, keluarga, produk, dan cerita istimewa Anda di Malang.”
+
+Tombol utama:
+“Jelajahi Karya Kami”
+
+Tombol sekunder:
+“Diskusikan Proyek”
+
+Tambahkan indikator scroll yang bergerak halus pada bagian bawah hero.
+
+Saat pointer bergerak, elemen tertentu dapat merespons melalui efek parallax tiga dimensi. Jangan membuat seluruh objek bergerak secara berlebihan.
+
+Jika memungkinkan, buat objek kamera atau elemen lensa menggunakan Three.js atau React Three Fiber. Jika pemodelan objek realistis sulit diwujudkan, buat komposisi 3D abstrak yang indah menggunakan geometry, material, pencahayaan, dan foto yang ditempatkan dalam frame 3D.
+
+Hindari hero yang sekadar berupa video latar dengan tulisan di atasnya. Pengalaman ruang, kedalaman, pergerakan, dan interaksi harus benar-benar terasa.
+
+==================================================
+4. NAVIGASI PREMIUM
+==================================================
+
+Buat navigasi modern dengan menu berikut:
+
+- Home
+- Portfolio
+- Services
+- About
+- Contact
+
+Fitur navigasi:
+- Logo atau wordmark di sebelah kiri.
+- Menu yang rapi dengan jarak proporsional.
+- Tombol “Book a Session” atau “Booking Foto”.
+- Navigasi transparan pada hero.
+- Navigasi berubah menjadi solid atau memiliki backdrop blur setelah pengunjung menggulir halaman.
+- Animasi garis emas atau indikator kecil pada menu aktif.
+- Smooth scrolling untuk navigasi antarbagian.
+- Menu mobile dengan animasi drawer yang halus.
+
+Pada perangkat mobile, hindari navigasi yang memakan terlalu banyak tempat.
+
+==================================================
+5. PORTFOLIO — IMMERSIVE PHOTO GALLERY
+==================================================
+
+Buat bagian portofolio sebagai pusat perhatian kedua setelah hero.
+
+Judul:
+“Stories Behind Every Frame”
+
+Deskripsi:
+“Setiap gambar menyimpan emosi, perjalanan, dan kenangan yang layak diabadikan.”
+
+Kategori fotografi:
+- Wedding
+- Prewedding
+- Portrait
+- Family
+- Graduation
+- Product
+- Commercial
+- Event
+- Culture & Heritage
+
+Buat galeri dengan layout editorial asimetris, ukuran gambar bervariasi, dan ruang kosong yang elegan.
+
+Hindari grid seragam yang terlihat generik.
+
+Interaksi portofolio:
+1. Gambar memiliki efek hover yang halus.
+2. Efek zoom gambar dilakukan dengan transformasi yang lembut.
+3. Judul karya dan kategori muncul saat pengguna mengarahkan pointer.
+4. Terdapat filter kategori yang berfungsi.
+5. Pergantian kategori menggunakan transisi layout yang halus.
+6. Gambar dapat dibuka dalam lightbox.
+7. Lightbox menyediakan navigasi sebelumnya dan berikutnya.
+8. Lightbox dapat ditutup melalui tombol close, klik area luar gambar, dan tombol Escape.
+9. Pada mobile, interaksi harus tetap berfungsi tanpa hover.
+10. Gunakan lazy loading untuk gambar yang berada di luar layar.
+
+Buat satu atau dua foto unggulan dengan ukuran besar agar galeri terasa seperti editorial majalah fotografi internasional.
+
+Ketika sebuah karya dipilih, tampilkan foto dengan ukuran besar dan informasi:
+- Judul karya.
+- Kategori.
+- Lokasi pemotretan.
+- Deskripsi singkat jika tersedia.
+
+Semua foto harus menggunakan sistem data terstruktur agar mudah diganti.
+
+Jangan mengarang nama klien nyata, penghargaan, publikasi, atau klaim pengalaman profesional yang belum diberikan. Gunakan konten demo yang mudah diedit.
+
+==================================================
+6. BAGIAN “THE ART OF CAPTURING MOMENTS”
+==================================================
+
+Buat section editorial dengan visual yang menggabungkan foto portrait, tekstur kain kebaya, detail sulaman, dan ornamen batik secara elegan.
+
+Gunakan komposisi split layout:
+- Sisi kiri menampilkan foto editorial dengan rasio gambar yang bervariasi.
+- Sisi kanan menampilkan judul dan narasi yang muncul melalui animasi scroll.
+
+Judul:
+“Bukan Sekadar Foto. Sebuah Cerita.”
+
+Isi:
+“Kami percaya bahwa foto terbaik tidak hanya menangkap apa yang terlihat, tetapi juga menyimpan perasaan di balik sebuah momen. Melalui permainan cahaya, komposisi, dan pendekatan yang personal, setiap sesi dirancang menjadi pengalaman yang berkesan.”
+
+Tambahkan aksen garis emas tipis, motif batik yang samar, dan transisi antarbidang yang lembut.
+
+Jangan membuat dekorasi budaya mendominasi pesan fotografi.
+
+==================================================
+7. SERVICES — LAYANAN FOTOGRAFI
+==================================================
+
+Bangun section layanan dengan tampilan editorial premium, bukan sekadar kumpulan kartu standar.
+
+Layanan yang ditampilkan:
+
+A. Wedding Photography
+Mengabadikan momen pernikahan dengan pendekatan dokumenter dan editorial.
+
+B. Prewedding Photography
+Sesi foto pasangan dengan konsep artistik dan lokasi yang sesuai dengan karakter cerita mereka.
+
+C. Portrait & Personal Branding
+Fotografi individu, profesional, model, dan personal branding.
+
+D. Family & Graduation
+Mengabadikan kebersamaan keluarga dan pencapaian akademik.
+
+E. Product & Commercial
+Fotografi produk untuk katalog, marketplace, kampanye pemasaran, dan kebutuhan bisnis.
+
+F. Event & Cultural Photography
+Dokumentasi acara, kegiatan perusahaan, dan kegiatan kebudayaan.
+
+Setiap layanan harus memiliki:
+- Foto representatif.
+- Nama layanan.
+- Deskripsi singkat.
+- Tombol “Lihat Detail” atau “Konsultasikan”.
+- Efek hover yang elegan.
+- Navigasi yang mengarahkan pengguna ke formulir booking dengan jenis layanan terpilih.
+
+Jangan mengisi harga dengan angka yang diklaim sebagai harga bisnis sebenarnya. Buat harga sebagai data konfigurasi yang dapat diedit. Jika belum ada harga, gunakan keterangan “Hubungi kami untuk penawaran”.
+
+==================================================
+8. SIGNATURE EXPERIENCE — 3D SCROLL STORY
+==================================================
+
+Buat satu bagian khusus yang menjadi ciri khas website ini dan sulit ditemukan pada template portofolio fotografi biasa.
+
+Konsep:
+“FROM MOMENT TO MEMORY”.
+
+Saat pengguna menggulir halaman:
+1. Sebuah frame foto muncul dari latar yang gelap.
+2. Frame berkembang menjadi lebih besar di hadapan pengunjung.
+3. Foto berganti melalui transisi cinematic masking.
+4. Latar berubah secara perlahan dari charcoal ke maroon lalu ivory.
+5. Elemen geometris keemasan bergerak mengikuti perjalanan scroll.
+6. Teks naratif muncul secara bertahap.
+7. Pada akhir section, foto utama membentuk komposisi seperti karya yang dipamerkan di sebuah galeri.
+
+Gunakan GSAP ScrollTrigger atau pendekatan animasi setara jika sesuai dengan stack proyek.
+
+Pastikan animasi scroll tidak menyebabkan halaman terkunci, sulit dinavigasi, atau mengganggu pembacaan.
+
+Animasi harus tetap dapat dipakai dengan baik pada perangkat touch dan mobile. Jika efek pinning atau 3D scroll terlalu berat pada perangkat kecil, gunakan versi yang lebih ringan.
+
+==================================================
+9. ABOUT — STORY, CRAFT, AND CULTURE
+==================================================
+
+Judul:
+“Photography with Purpose and Feeling.”
+
+Tampilkan:
+- Foto fotografer atau tim.
+- Cerita pendek tentang pendekatan fotografi.
+- Filosofi di balik brand.
+- Proses kreatif.
+- Fokus terhadap detail, cahaya, komposisi, dan emosi.
+
+Masukkan unsur budaya Jawa melalui bahasa visual, tekstur, motif, dan pilihan warna.
+
+Gunakan teks yang hangat, profesional, dan autentik. Hindari kalimat klaim seperti “fotografer terbaik nomor satu di Malang” tanpa bukti.
+
+Sediakan data yang mudah diganti:
+- Nama fotografer.
+- Profil singkat.
+- Tahun mulai beroperasi.
+- Pengalaman dan spesialisasi.
+- Foto profil atau tim.
+
+Jika informasi belum diberikan, tampilkan placeholder editorial yang jelas untuk diganti.
+
+==================================================
+10. PHOTO EXPERIENCE / BEHIND THE SCENES
+==================================================
+
+Buat bagian yang memperlihatkan pengalaman di balik sebuah sesi pemotretan.
+
+Gunakan kombinasi:
+- Foto behind the scenes.
+- Kamera dan perlengkapan foto.
+- Detail persiapan pemotretan.
+- Interaksi fotografer dengan klien.
+- Potret suasana kerja.
+
+Tampilkan dalam komposisi gambar berselang-seling dengan animasi parallax ringan.
+
+Bagian ini harus menciptakan rasa kedekatan dan kepercayaan kepada calon pelanggan, bukan sekadar memamerkan alat fotografi.
+
+==================================================
+11. CLIENT TESTIMONIALS
+==================================================
+
+Buat section testimoni yang elegan.
+
+Tampilkan:
+- Kutipan pelanggan.
+- Nama pelanggan.
+- Jenis sesi foto.
+- Foto kecil opsional jika tersedia.
+
+Gunakan carousel dengan transisi yang lembut atau layout editorial.
+
+Testimoni harus berasal dari data yang dapat diedit. Jangan membuat testimoni palsu seolah berasal dari klien asli. Jika belum tersedia, gunakan placeholder berlabel DEMO yang mudah diganti sebelum website dipublikasikan.
+
+==================================================
+12. BOOKING DAN KONTAK
+==================================================
+
+Buat sistem booking yang jelas dan nyaman digunakan.
+
+Judul:
+“Let's Create Something Timeless.”
+
+Deskripsi:
+“Ceritakan momen yang ingin Anda abadikan. Mari rancang sesi fotografi yang sesuai dengan kebutuhan dan karakter Anda.”
+
+Formulir memiliki field:
+- Nama lengkap.
+- Nomor WhatsApp.
+- Email opsional.
+- Jenis layanan fotografi.
+- Tanggal rencana sesi.
+- Lokasi pemotretan.
+- Rentang anggaran opsional.
+- Catatan atau konsep foto.
+
+Persyaratan:
+- Validasi input.
+- Tampilkan pesan kesalahan yang mudah dipahami.
+- Tombol submit memiliki status interaksi yang jelas.
+- Setelah form valid, siapkan pesan WhatsApp dengan format yang rapi.
+- Buka WhatsApp menggunakan nomor bisnis yang ditentukan dalam konfigurasi.
+- Semua field harus ikut dimasukkan ke dalam pesan dengan encoding URL yang benar.
+- Jika nomor WhatsApp belum diatur, tampilkan instruksi konfigurasi, bukan mengirim ke nomor acak.
+- Jangan berpura-pura menyimpan data ke database jika backend belum tersedia.
+- Jangan tampilkan pesan “booking berhasil tersimpan” apabila data hanya disiapkan untuk dikirim melalui WhatsApp.
+
+Format pesan WhatsApp:
+
+Assalamu'alaikum, saya ingin konsultasi sesi fotografi.
+
+Nama:
+Jenis layanan:
+Tanggal rencana:
+Lokasi:
+Rentang anggaran:
+Konsep atau catatan:
+
+Mohon informasi lebih lanjut mengenai ketersediaan jadwal dan paket layanan. Terima kasih.
+
+Tambahkan tombol kontak WhatsApp yang mudah terlihat tanpa mengganggu tampilan. Sediakan pula email bisnis, area layanan Malang, dan tautan media sosial yang dapat dikonfigurasi.
+
+==================================================
+13. FAQ DAN FOOTER
+==================================================
+
+Buat FAQ menggunakan accordion dengan animasi pembukaan yang halus.
+
+Contoh pertanyaan:
+- Bagaimana cara melakukan booking?
+- Apakah sesi foto dapat dilakukan di luar Kota Malang?
+- Apakah pelanggan dapat mengajukan konsep sendiri?
+- Berapa lama proses editing foto?
+- Bagaimana cara memperoleh paket dan penawaran harga?
+
+Jawaban harus dapat diedit dan tidak boleh menjanjikan waktu, harga, atau layanan yang belum dikonfirmasi.
+
+Footer harus menggunakan latar deep charcoal dengan detail maroon dan emas yang halus.
+
+Masukkan:
+- Logo atau wordmark.
+- Tagline.
+- Navigasi ringkas.
+- Kontak.
+- Media sosial.
+- Lokasi layanan.
+- Copyright otomatis berdasarkan tahun berjalan jika sesuai dengan implementasi aplikasi.
+
+==================================================
+14. SISTEM ANIMASI DAN MOTION DESIGN
+==================================================
+
+Animasi adalah pembeda utama website ini.
+
+Gunakan motion design yang memiliki tujuan, konsisten, dan terasa premium.
+
+Efek yang diharapkan:
+
+A. PAGE ENTRANCE
+- Intro animasi singkat.
+- Transisi tipografi.
+- Reveal dari masker foto.
+- Pergerakan elemen 3D.
+
+B. SCROLL REVEAL
+- Judul muncul secara bertahap.
+- Foto berkembang dari skala kecil.
+- Elemen visual bergerak pada lapisan kedalaman yang berbeda.
+- Pergerakan parallax yang terkontrol.
+
+C. HOVER INTERACTION
+- Foto mengalami zoom halus.
+- Garis emas bergerak.
+- Tombol memiliki respons visual.
+- Kartu gambar memperlihatkan informasi tambahan.
+
+D. CURSOR EXPERIENCE
+Pada desktop, pertimbangkan cursor khusus atau indikator interaktif minimal pada area portofolio. Jangan mengganti cursor sistem secara menyeluruh jika mengganggu aksesibilitas atau penggunaan umum.
+
+E. PAGE TRANSITION
+Gunakan transisi antarbagian dan antarhalaman yang halus jika implementasi multi-page memang diperlukan. Jangan mengorbankan waktu akses dan navigasi.
+
+F. MICROINTERACTION
+- Tombol bereaksi terhadap hover dan klik.
+- Ikon memiliki animasi ringan.
+- Filter galeri merespons dengan jelas.
+- Accordion memiliki transisi yang halus.
+- Form mempunyai fokus visual yang baik.
+
+Hindari penggunaan animasi yang seragam di setiap komponen.
+
+Jangan membuat semua elemen bergerak terus-menerus. Berikan jeda visual agar website tetap terlihat dewasa dan profesional.
+
+==================================================
+15. TEKNOLOGI DAN ARSITEKTUR
+==================================================
+
+Gunakan stack yang stabil dan cocok untuk website interaktif modern.
+
+Pilihan utama:
+- React.
+- TypeScript.
+- Vite.
+- Three.js.
+- React Three Fiber dan Drei bila sesuai.
+- GSAP dan ScrollTrigger untuk animasi kompleks.
+- Framer Motion atau Motion untuk transisi UI jika diperlukan.
+- CSS modern atau CSS Modules sesuai struktur proyek.
+- Lucide React untuk ikon.
+
+Jangan memasukkan terlalu banyak library yang memiliki fungsi tumpang tindih.
+
+Terapkan:
+- Komponen yang modular.
+- Penamaan variabel yang jelas.
+- Pemisahan data portofolio dan konfigurasi bisnis dari komponen UI.
+- Struktur kode yang mudah dipelihara.
+- Error handling untuk bagian 3D dan gambar.
+- Tidak ada tombol dekoratif yang tidak melakukan apa-apa.
+- Tidak ada link kosong tanpa tujuan.
+- Tidak ada fungsi yang hanya berpura-pura bekerja.
+
+Simpan identitas brand dan kontak di satu file konfigurasi, misalnya:
+src/data/siteConfig.ts
+
+Simpan data galeri dan layanan secara terpisah, misalnya:
+src/data/portfolio.ts
+src/data/services.ts
+
+Sesuaikan nama file dengan struktur proyek yang dihasilkan, tetapi pertahankan pemisahan tanggung jawab.
+
+==================================================
+16. KOMPATIBILITAS, PERFORMA, DAN RESPONSIVE DESIGN
+==================================================
+
+Website harus berjalan baik pada:
+- Desktop.
+- Laptop.
+- Tablet.
+- Smartphone Android.
+- Smartphone iPhone.
+
+Gunakan pendekatan mobile-first.
+
+Perhatian khusus:
+- Pastikan konten tidak meluber secara horizontal.
+- Pastikan teks hero tidak menutupi wajah dalam foto.
+- Sesuaikan posisi kamera virtual dengan ukuran layar.
+- Kurangi jumlah partikel dan objek 3D pada mobile.
+- Gunakan ukuran gambar responsif.
+- Terapkan lazy loading untuk gambar non-hero.
+- Hindari penggunaan file video atau tekstur berukuran sangat besar tanpa alasan.
+- Jangan menginisialisasi beberapa canvas 3D berat secara bersamaan.
+- Hentikan atau kurangi animasi yang tidak terlihat jika memungkinkan.
+- Gunakan gambar fallback jika WebGL tidak didukung.
+- Sediakan prefers-reduced-motion untuk pengguna yang mengurangi gerakan.
+- Pertahankan navigasi dan fungsi utama meskipun animasi 3D gagal.
+
+Website harus tetap menarik walaupun perangkat tidak mendukung rendering 3D sepenuhnya.
+
+Optimalkan agar elemen utama tampil cepat. Jangan menunda seluruh isi halaman hanya untuk menunggu semua aset 3D selesai dimuat.
+
+==================================================
+17. FOTO, ASET VISUAL, DAN LISENSI
+==================================================
+
+Gunakan fotografi editorial berkualitas tinggi yang sesuai dengan tema:
+- Wedding dan prewedding.
+- Portrait profesional.
+- Detail kain kebaya dan batik.
+- Fotografi produk.
+- Keluarga dan momen emosional.
+- Detail kamera dan proses fotografi.
+
+Jika aset gambar belum disediakan, gunakan gambar demo yang sesuai dan dapat diganti.
+
+Ketentuan:
+- Hindari gambar yang tidak relevan.
+- Hindari gambar pecah atau blur.
+- Gunakan object-fit dan object-position yang sesuai.
+- Berikan fallback apabila URL gambar gagal dimuat.
+- Gunakan aset yang boleh digunakan atau disediakan oleh pemilik situs.
+- Jangan mengklaim foto demo sebagai karya asli fotografer.
+- Letakkan URL gambar dalam data galeri agar penggantian aset lebih mudah.
+
+Utamakan visual yang terasa sinematik, natural, dan artistik.
+
+==================================================
+18. SEO DAN AKSESIBILITAS
+==================================================
+
+Optimalkan metadata dasar:
+- Page title.
+- Meta description.
+- Favicon.
+- Open Graph metadata.
+- Struktur heading yang benar.
+- Alt text gambar.
+- Semantic HTML.
+- Link dan tombol yang dapat diakses menggunakan keyboard.
+
+Target topik pencarian yang relevan, tanpa keyword stuffing:
+- Fotografer Malang.
+- Jasa fotografi Malang.
+- Fotografi wedding Malang.
+- Prewedding Malang.
+- Fotografi produk Malang.
+- Foto portrait profesional Malang.
+
+Gunakan Bahasa Indonesia yang natural pada konten utama. Bahasa Inggris boleh digunakan secara selektif untuk heading editorial, label visual, dan tagline.
+
+Jangan menjamin peringkat Google tertentu.
+
+==================================================
+19. PERSYARATAN GITHUB PAGES DAN DEPLOYMENT
+==================================================
+
+Website wajib dapat di-build dan dipublikasikan melalui GitHub Pages.
+
+Perhatikan hal-hal berikut:
+- Konfigurasikan Vite dengan base path yang kompatibel dengan GitHub Pages.
+- Jangan mengasumsikan website akan berjalan pada root domain.
+- Pastikan aset tidak menggunakan path absolut yang merusak pemuatan gambar, CSS, JavaScript, atau font ketika website berada di subfolder repositori.
+- Gunakan import aset yang benar dan path publik yang sesuai dengan base.
+- Hindari konfigurasi routing yang menghasilkan halaman kosong ketika halaman dimuat ulang.
+- Untuk website satu halaman, prioritaskan navigasi berbasis section atau anchor.
+- Jika menggunakan routing, pilih solusi yang kompatibel dengan GitHub Pages dan jelaskan konsekuensinya.
+- Siapkan workflow deployment GitHub Actions jika diperlukan.
+- Pastikan build production berhasil sebelum menyatakan proyek selesai.
+- Pastikan tidak ada error import, dependency, atau komponen yang belum didefinisikan.
+
+Sertakan instruksi singkat untuk:
+1. Menjalankan proyek secara lokal.
+2. Melakukan build production.
+3. Menghubungkan repository GitHub.
+4. Mengatur base path sesuai nama repository.
+5. Mengaktifkan GitHub Pages.
+6. Memeriksa website setelah deployment.
+
+Jangan mengklaim deployment berhasil jika website belum benar-benar dipublikasikan dan diuji.
+
+==================================================
+20. STRUKTUR OUTPUT KODE
+==================================================
+
+Bangun seluruh kode secara lengkap, bukan hanya contoh potongan.
+
+Ikuti struktur proyek yang masuk akal, misalnya:
+
+- package.json
+- index.html
+- vite.config.ts
+- tsconfig.json
+- src/main.tsx
+- src/App.tsx
+- src/index.css
+- src/components/
+- src/sections/
+- src/data/
+- public/
+
+Boleh menyesuaikan struktur berdasarkan kebutuhan, tetapi seluruh import harus valid.
+
+Persyaratan output:
+1. Berikan seluruh file yang diperlukan.
+2. Jangan mengganti kode penting dengan komentar seperti “implementasikan sendiri”.
+3. Jangan memberikan pseudocode.
+4. Jangan meninggalkan komponen inti yang kosong.
+5. Jangan memotong kode penting.
+6. Pastikan seluruh dependency yang digunakan tercantum.
+7. Pastikan semua fungsi interaksi benar-benar diimplementasikan.
+8. Pisahkan konfigurasi brand, foto, layanan, dan informasi kontak.
+9. Jelaskan file yang perlu diedit untuk mengganti konten.
+10. Jika lingkungan Google AI Studio menyediakan fitur preview, bangun aplikasi hingga dapat dijalankan dan diperiksa di preview.
+
+Jika kode terlalu banyak untuk satu respons, selesaikan aplikasi secara bertahap tanpa menghilangkan file, fitur, atau dependensi yang diperlukan. Pertahankan konsistensi antarfile sampai seluruh proyek lengkap.
+
+==================================================
+21. KRITERIA PENERIMAAN
+==================================================
+
+Website baru dapat dianggap selesai apabila:
+
+[ ] Identitas kebaya Jawa terlihat jelas melalui warna dan detail visual.
+
+[ ] Desain terasa premium, modern, sinematik, dan tidak seperti template generik.
+
+[ ] Hero menampilkan pengalaman visual 3D yang nyata atau komposisi 3D interaktif yang memadai.
+
+[ ] Terdapat animasi scroll, reveal, parallax, dan microinteraction yang halus.
+
+[ ] Galeri foto memiliki filter kategori yang benar-benar berfungsi.
+
+[ ] Lightbox dapat membuka, menutup, dan berpindah antarfoto.
+
+[ ] Menu navigasi berfungsi pada desktop dan mobile.
+
+[ ] Layanan memiliki navigasi yang sesuai.
+
+[ ] Form booking tervalidasi dan dapat menyiapkan pesan WhatsApp.
+
+[ ] Semua tombol dan tautan memiliki fungsi yang jelas.
+
+[ ] Website responsif dan tidak mengalami horizontal overflow.
+
+[ ] Fallback tetap bekerja jika 3D atau gambar gagal dimuat.
+
+[ ] Animasi menghormati preferensi reduced motion.
+
+[ ] Tidak ada gambar rusak, import yang salah, atau error runtime yang belum ditangani.
+
+[ ] Tidak ada testimoni atau klaim bisnis demo yang disajikan seolah-olah fakta.
+
+[ ] Build production berhasil dan konfigurasi GitHub Pages dijelaskan dengan benar.
+
+==================================================
+22. STANDAR KUALITAS AKHIR
+==================================================
+
+Target kualitas visual adalah website studio fotografi editorial kelas premium yang menggabungkan karakter budaya Jawa dengan teknologi web modern.
+
+Website harus terasa seperti perpaduan:
+- Galeri fotografi kontemporer.
+- Editorial fashion yang elegan.
+- Identitas budaya Jawa yang halus.
+- Pengalaman sinematik 3D.
+- Website bisnis profesional yang berorientasi pada booking.
+
+Buat komposisi yang berani tetapi tidak berisik. Prioritaskan storytelling, tipografi, foto berkualitas, pencahayaan, kedalaman ruang, dan motion design yang terarah.
+
+Hindari:
+- Template landing page yang terlalu biasa.
+- Semua section berbentuk kartu seragam.
+- Efek neon yang tidak sesuai dengan palet.
+- Animasi yang berlebihan dan memperlambat halaman.
+- Ornamen batik yang terlalu ramai.
+- Tombol palsu.
+- Foto yang tidak relevan.
+- Klaim bisnis yang tidak dapat diverifikasi.
+- Kode yang hanya tampak lengkap tetapi tidak dapat dijalankan.
+
+Instruksi final:
+
+Mulai bangun website sekarang. Prioritaskan implementasi yang benar-benar berfungsi, bukan sekadar menjelaskan rencana desain. Periksa struktur komponen, interaksi, dependency, responsive layout, fallback visual, serta konfigurasi build. Jika perlu memilih antara efek visual yang sangat berat dan pengalaman premium yang tetap lancar, pilih solusi yang cerdas, optimal, dan tetap menakjubkan.
+
+Hasil akhir harus layak dijadikan portofolio unggulan Autosmart Digital Solutions untuk menunjukkan kemampuan pembuatan website fotografi 3D profesional di Kota Malang.

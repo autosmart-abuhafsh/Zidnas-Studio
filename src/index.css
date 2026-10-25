@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-maroon: #651B32;
+    --color-ivory: #F7F0E5;
+    --color-gold: #C5A15A;
+    --color-batik: #35251F;
+    --color-charcoal: #171518;
+    --color-rose: #B9838C;
+
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: #171518;
+    color: #F7F0E5;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-sans-modern {
+  font-family: var(--font-sans);
+}
+
+.font-exif {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle gold hairline ornament */
+.gold-hairline {
+  background: linear-gradient(
+    90deg,
+     rgba(197, 161, 90, 0) 0%,
+    rgba(197, 161, 90, 0.55) 50%,
+    rgba(197, 161, 90, 0) 100%
+  );
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #171518;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #35251F;
+  border-radius: 4px;
+  border: 1px solid rgba(197, 161, 90, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #651B32;
+}
